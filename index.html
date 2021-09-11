@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cuarta sesión</title>
+  <!-- libreria de A-Frame anterior para physics -->
+  <script src=" https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- libreria de ambientes -->
+  <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+
+  <!-- LIBRERIAS DE COLISIONES Y FÍSICAS-->
+  <script
+    src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+
+  <!-- MOVIMIENTO DE LA CAMARA -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script src="https://unpkg.com/super-hands@2.0.2/dist/super-hands.min.js"></script>
+
+  <!-- https://github.com/mayognaise/aframe-gif-component  scripts de gif animados -->
+  <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-gif-component/master/dist/aframe-gif-component.min.js"></script>
+  
+  <script>
+
+    AFRAME.registerComponent("play", {
+      init: function() {
+        this.onClick = this.onClick.bind(this);
+      },
+      play: function() {
+        window.addEventListener("click", this.onClick);
+      },
+      pause: function() {
+        window.removeEventListener("click", this.onClick);
+      },
+      onClick: function(evt) {
+        var video = document.getElementById("vid");
+
+        if (!video) {
+          return;
+        }
+        video.play();
+      }
+    });
+
+  </script>
+
+
+  <style>
+
+.intrinsic-box a-scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  h1{
+    position:absolute;
+    z-index:99999;
+  }
+  img{
+    position:absolute;
+    bottom:0;
+        z-index:99999;
+  }
+  </style>
+</head>
+
+<body>
+
+
+  
+  <!-- colocar  -- "debug: true" en physics para visualizar el tamaño de la solidez del objeto -->
+  <!-- <a-scene physics="gravity:0.1; "> -->
+
+    <div class="intrinsic-box" id="myEmbeddedScene">
+    <a-scene embedded physics="gravity:0; ">
+
+
+    <a-entity movement-controls kinematic-body>
+    <a-entity id="camera" camera position="0 3 0" look-controls></a-entity>
+    </a-entity>
+
+
+    <a-assets>
+    <a-asset-item id="chad" src="./assets/chad.gltf"></a-asset-item>
+    <a-asset-item id="perro" src="./assets/perro-ahora.gltf"></a-asset-item>
+    <a-asset-item id="ogro" src="./assets/ogro.gltf"></a-asset-item>
+    <a-asset-item id="cara" src="./assets/cara.gltf"></a-asset-item>
+
+<!-- url del video -->
+<video id="vid" src="./assets/video1.mp4"
+loop="true"
+crossorigin="anonymous"
+controls="true"
+></video>
+
+
+    </a-assets>
+
+    <!--OBJETOS -->
+    <a-entity static-body gltf-model="#ogro" scale="3.90922 3.90922 3.90922" position="0 0 -10.9337"></a-entity>
+    <a-entity static-body gltf-model="#cara" scale="3.90922 3.90922 3.90922" position="-7.77399 0 -12.75434"></a-entity>
+    <a-entity static-body gltf-model="#chad" position="0 0 -22.515"></a-entity>
+    <a-entity dynamic-body gltf-model="#perro" scale="0.5 0.5 .5"  position="-4.77399 0 -5.75434"></a-entity>
+
+    <!-- PAREDES -->
+    <a-box static-body color="white" position="-6.517 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    <a-box static-body color="white" position="6.509 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    |<a-box static-body color="white" position="10.69504 2.27754 -13.5204" scale="22.36039 4.639 0.935" rotation="0 90 0"></a-box>
+    |<a-box static-body color="white" position="-10.721 2.27754 -13.5204" scale="22.36039 4.639 0.935"rotation="0 90 0"></a-box>
+    <a-box static-body color="white" position="0.04352 2.27754 -24.22079" scale="22.36039 4.639 0.935"></a-box>
+    <a-box static-body color="white" position="0.04352 2.27754 -24.22079" scale="24.36039 4.639 0.935"></a-box>
+
+
+   <!-- techo y piso -->
+    <a-box static-body color="white" position="0.04352 4.71871 -16.8278" scale="23.34039 30 0.935" material="opacity:0"  rotation="90 90 90"></a-box>
+
+    <a-box static-body color="white" position="0.04352 -0.46029 -16.8278" scale="23.34039 30 0.935" material="opacity:0" rotation="90 90 90"  ></a-box>
+   <!-- gifs -->
+   <a-entity geometry="primitive:plane"   position="-4.78781 0.55141 2.01366" material="shader:gif;src:url(./assets/giphy.gif); transparent: true;alphaTest:0.5; side:double" gif=""></a-entity>
+   <a-entity geometry="primitive: cone" position="-4.78781 0.55141 2.01366" material="shader: gif; src: url(./assets/cheems1.gif);  transparent: true;alphaTest:0.5; side:double" gif=""></a-entity>
+   
+   <!-- video -->
+   <a-entity
+   geometry="primitive: torus; "
+   material="src:#vid;side:double;height:800;width:1280"
+   position="0 0 0"
+   scale="30 30 30"
+   play
+ > </a-entity>
+
+    <!-- ILUMINACIÓN -->
+    <a-entity light="type: point;" position="0.949 4.494 -7.408"></a-entity>
+    <a-entity light="intensity: 0.6; type: ambient" position="0 9.339 -14.594"></a-entity>
+
+    <!-- AMBIENTE -->
+    <a-entity environment="preset: default; groundColor: #445; grid: cross"></a-entity>
+
+  </a-scene>
+</div>
+
+
+  <h1>HABITAR LA WEB</h1>
+    <img src="./assets/cheems1.gif" alt="" srcset="">
+ 
+</body>
+
+</html>
