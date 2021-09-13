@@ -93,6 +93,7 @@
     <a-asset-item id="perro" src="./assets/perro-ahora.gltf"></a-asset-item>
     <a-asset-item id="ogro" src="./assets/ogro.gltf"></a-asset-item>
     <a-asset-item id="cara" src="./assets/cara.gltf"></a-asset-item>
+    <a-asset-item id="hands" src="./assets/hands.obj"></a-asset-item>
 
 <!-- url del video -->
 <video id="vid" src="./assets/starfield.mp4"
@@ -111,9 +112,12 @@ controls="true"
     <a-plane src = "./assets/tex_02.jpg" position="0 0 0" rotation="-90 0 0" width="100" height="100"> </a-plane>  
 
     <!--OBJETOS -->
-    <a-entity static-body gltf-model="#ogro" scale="3.90922 3.90922 3.90922" position="0 0 -10.9337"></a-entity>
+    <a-obj-model src="#hands" scale=".3 .3 .3" position="-5 30 -50.9337" material="shader:gif;src:url(./assets/question.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+    animation = "property: rotation; to: 0 360 360; dur: 80000; loop: true; easing: linear"> </a-obj-model>
+    <!--<a-entity static-body gltf-model="#ogro" scale="3.90922 3.90922 3.90922" position="0 0 -10.9337"></a-entity> -->
     <a-entity static-body gltf-model="#cara" scale="3.90922 3.90922 3.90922" position="-7.77399 0 -12.75434"></a-entity>
     <a-entity static-body gltf-model="#chad" position="0 0 -22.515"></a-entity>
+    <a-entity dynamic-body gltf-model="#perro" scale="0.5 0.5 .5"  position="-4.77399 0 -5.75434"></a-entity>
     <a-entity dynamic-body gltf-model="#perro" scale="0.5 0.5 .5"  position="-4.77399 0 -5.75434"></a-entity>
 
 
@@ -131,29 +135,28 @@ controls="true"
     </a-entity>
 
     <!-- PAREDES -->
-    <a-box static-body color="white" position="-6.517 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
-    <a-box static-body color="white" position="6.509 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
-    |<a-box static-body color="white" position="10.69504 2.27754 -13.5204" scale="22.36039 4.639 0.935" rotation="0 90 0"></a-box>
-    |<a-box static-body color="white" position="-10.721 2.27754 -13.5204" scale="22.36039 4.639 0.935"rotation="0 90 0"></a-box>
-    <a-box static-body color="white" position="0.04352 2.27754 -24.22079" scale="22.36039 4.639 0.935"></a-box>
-    <a-box static-body color="white" position="0.04352 2.27754 -24.22079" scale="24.36039 4.639 0.935"></a-box>
+    <a-box static-body color="black" position="-6.517 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    <a-box static-body color="black" position="6.509 2.27754 -2.412" scale="9.052 4.639 0.935"></a-box>
+    |<a-box static-body color="black" position="10.69504 2.27754 -13.5204" scale="22.36039 4.639 0.935" rotation="0 90 0"></a-box>
+    |<a-box static-body color="black" position="-10.721 2.27754 -13.5204" scale="22.36039 4.639 0.935"rotation="0 90 0"></a-box>
+    <a-box static-body color="black" position="0.04352 2.27754 -24.22079" scale="22.36039 4.639 0.935"></a-box>
+    <a-box static-body color="black" position="0.04352 2.27754 -24.22079" scale="24.36039 4.639 0.935"></a-box>
 
 
    <!-- techo y piso -->
    
    <!-- gifs -->
-   <a-entity geometry="primitive: box" scale="3 3 3"  position="8 2 2.01366" material="shader:gif;src:url(./assets/loop4.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+   <a-entity geometry="primitive: box" scale="3 3 3"  position="8 3 2.01366" material="shader:gif;src:url(./assets/digiboard.gif); transparent: true;alphaTest:0.5; side:double" gif=""
    animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
-   <a-entity geometry="primitive: box" scale="3 3 3"  position="4 2 2.01366" material="shader:gif;src:url(./assets/loop2.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+   <a-entity geometry="primitive: box" scale="3 3 3"  position="4 3 2.01366" material="shader:gif;src:url(./assets/loop2.gif); transparent: true;alphaTest:0.5; side:double" gif=""
    animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
-   <a-entity geometry="primitive: box" scale="3 3 3"  position="0 2 2.01366" material="shader:gif;src:url(./assets/question.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+   <a-entity geometry="primitive: box" scale="3 3 3"  position="0 3 2.01366" material="shader:gif;src:url(./assets/question.gif); transparent: true;alphaTest:0.5; side:double" gif=""
    animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
-   <a-entity geometry="primitive: box" scale="3 3 3"  position="-8.78781 2 2.01366" material="shader:gif;src:url(./assets/hydra3.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+   <a-entity geometry="primitive: box" scale="3 3 3"  position="-8.78781 3 2.01366" material="shader:gif;src:url(./assets/hydra3.gif); transparent: true;alphaTest:0.5; side:double" gif=""
    animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
-   <a-entity geometry="primitive: box" scale="3 3 3"  position="-4.78781 2 2.01366" material="shader:gif;src:url(./assets/loop.gif); transparent: true;alphaTest:0.5; side:double" gif=""
+   <a-entity geometry="primitive: box" scale="3 3 3"  position="-4.78781 3 2.01366" material="shader:gif;src:url(./assets/loop.gif); transparent: true;alphaTest:0.5; side:double" gif=""
    animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
-   <a-entity geometry="primitive: cone" position="-4.78781 0.55141 2.01366" material="shader: gif; src: url(./assets/cheems1.gif);  transparent: true;alphaTest:0.5; side:double" gif=""
-   animation = "property: rotation; to: 0 360 0; dur: 20000; loop: true; easing: linear;"></a-entity>
+  
    
    <!-- video -->
    <a-entity
