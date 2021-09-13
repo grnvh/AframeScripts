@@ -84,16 +84,24 @@
 
 
     <a-entity movement-controls kinematic-body>
-    <a-entity id="camera" camera position="0 3 0" look-controls></a-entity>
+    <a-entity id="camera" camera position="0 3 15" look-controls></a-entity>
     </a-entity>
 
 
     <a-assets>
+      <audio src="./assets/synth.mp3" autoplay ></audio>
+
     <a-asset-item id="chad" src="./assets/chad.gltf"></a-asset-item>
     <a-asset-item id="perro" src="./assets/perro-ahora.gltf"></a-asset-item>
     <a-asset-item id="ogro" src="./assets/ogro.gltf"></a-asset-item>
     <a-asset-item id="cara" src="./assets/cara.gltf"></a-asset-item>
     <a-asset-item id="hands" src="./assets/hands.obj"></a-asset-item>
+
+    <a-asset-item id="hands" src="./assets/hands.obj"></a-asset-item>
+    <a-asset-item id="hands" src="./assets/hands.obj"></a-asset-item>
+
+    <a-asset-item id="every" src="./assets/eictext.obj"></a-asset-item>
+    <a-asset-item id="everymtl" src="./assets/eictext.mtl"></a-asset-item>
 
 <!-- url del video -->
 <video id="vid" src="./assets/starfield.mp4"
@@ -115,11 +123,12 @@ controls="true"
     <a-obj-model src="#hands" scale=".3 .3 .3" position="-5 30 -50.9337" material="shader:gif;src:url(./assets/question.gif); transparent: true;alphaTest:0.5; side:double" gif=""
     animation = "property: rotation; to: 0 360 360; dur: 80000; loop: true; easing: linear"> </a-obj-model>
     <!--<a-entity static-body gltf-model="#ogro" scale="3.90922 3.90922 3.90922" position="0 0 -10.9337"></a-entity> -->
-    <a-entity static-body gltf-model="#cara" scale="3.90922 3.90922 3.90922" position="-7.77399 0 -12.75434"></a-entity>
-    <a-entity static-body gltf-model="#chad" position="0 0 -22.515"></a-entity>
+    
+    
     <a-entity dynamic-body gltf-model="#perro" scale="0.5 0.5 .5"  position="-4.77399 0 -5.75434"></a-entity>
-    <a-entity dynamic-body gltf-model="#perro" scale="0.5 0.5 .5"  position="-4.77399 0 -5.75434"></a-entity>
-
+    
+    <a-entity obj-model= "obj: #every" material="shader:gif;src:url(./assets/hydra3.gif); transparent: true;alphaTest:0.5; side:double" gif="" position = "0 5 -15" rotation="0 0 0" scale="2 2 2"
+    animation = "property: rotation; to: 360 -360 0; dur: 20000; loop: true; easing: linear"></a-entity>
 
     <!-- // TEXTO -->
 
@@ -170,7 +179,7 @@ controls="true"
 
     <!-- ILUMINACIÓN -->
     <a-entity light="type: point;" position="0.949 4.494 -7.408"></a-entity>
-    <a-entity light="intensity: 0.6; type: ambient" position="0 9.339 -14.594"></a-entity>
+    <a-entity light="intensity: 0.5; type: ambient" position="0 9.339 -14.594"></a-entity>
 
     <!-- AMBIENTE -->
     
